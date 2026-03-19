@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contattaci | Auravita</title>
+  <link rel="stylesheet" href="jellyburn.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    .contact-page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .contact-page h1 {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .contact-page .subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* Info Cards */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: var(--shadow);
+      transition: all 0.2s ease;
+    }
+
+    .contact-card:hover {
+      border-color: var(--green);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-card-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-card-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .contact-card-body p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .contact-card-body a {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green);
+      word-break: break-all;
+    }
+
+    .contact-card-body a:hover {
+      text-decoration: underline;
+    }
+
+    /* Form */
+    .contact-form-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form-box h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 15px;
+      font-family: var(--font);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: #fff;
+      color: var(--text);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(184,134,11,0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #B8860B, #D4A017);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font);
+      margin-top: 4px;
+    }
+
+    .btn-submit:hover {
+      background: linear-gradient(135deg, #7B5800, #B8860B);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(184,134,11,0.4);
+    }
+
+    .form-success {
+      display: none;
+      background: var(--green-bg);
+      border: 1px solid var(--green);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      font-size: 15px;
+      color: var(--green-dark);
+      font-weight: 600;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .contact-email-direct {
+      text-align: center;
+      padding: 20px 0 8px;
+    }
+
+    .contact-email-direct p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .email-link {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--green);
+      word-break: break-all;
+      margin-bottom: 16px;
+    }
+
+    .email-link:hover { text-decoration: underline; }
+
+    .email-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .legal-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--green);
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .legal-back:hover { text-decoration: underline; }
+
+    .hours-badge {
+      display: inline-block;
+      background: var(--green-bg2);
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-page h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <span>🚚 Spedizione in tutta Italia</span>
+    <span class="sep">|</span>
+    <span>🛡️ Garanzia Soddisfatti o Rimborsati 30 Giorni</span>
+    <span class="sep">|</span>
+    <span>📞 Assistenza Clienti Dedicata</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
+          <span class="logo-icon">🌿</span>
+          <span class="logo-text">Auravita</span>
+        </a>
+      </div>
+      <nav class="nav">
+        <a href="index.html#ingredients">Ingredienti</a>
+        <a href="index.html#how-it-works">Come Funziona</a>
+        <a href="index.html#reviews">Recensioni</a>
+        <a href="index.html#pricing">Prezzi</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <a href="index.html#pricing" class="btn btn-header">Acquista Auravita</a>
+    </div>
+  </header>
+
+  <div class="contact-page">
+    <a href="index.html" class="legal-back">← Torna alla Home</a>
+    <h1>Contattaci</h1>
+    <p class="subtitle">Siamo qui per aiutarti. Scrivici per qualsiasi domanda sul prodotto, ordini, spedizioni o resi.</p>
+
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div class="contact-info">
+
+        <div class="contact-card">
+          <div class="contact-card-icon">📧</div>
+          <div class="contact-card-body">
+            <h3>Email di Assistenza</h3>
+            <p>Rispondiamo entro 24-48 ore lavorative.</p>
+            <a href="mailto:vytalonglife@support.shop">vytalonglife@support.shop</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon">📦</div>
+          <div class="contact-card-body">
+            <h3>Ordini e Spedizioni</h3>
+            <p>Per domande su ordini, tracking o consegne scrivici con il numero d'ordine.</p>
+            <a href="mailto:vytalonglife@support.shop?subject=Domanda%20ordine">vytalonglife@support.shop</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon">🔄</div>
+          <div class="contact-card-body">
+            <h3>Resi e Rimborsi</h3>
+            <p>Garanzia soddisfatti o rimborsati 30 giorni. Contattaci per avviare il processo.</p>
+            <a href="mailto:vytalonglife@support.shop?subject=Richiesta%20rimborso">vytalonglife@support.shop</a>
+            <br/>
+            <span class="hours-badge">Lun–Ven: 9:00–18:00</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon">❓</div>
+          <div class="contact-card-body">
+            <h3>Domande sul Prodotto</h3>
+            <p>Per informazioni sugli ingredienti, dosaggi o compatibilità con altri farmaci.</p>
+            <a href="index.html#faq">Consulta le FAQ →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form-box">
+        <h2>Inviaci un Messaggio</h2>
+        <div class="contact-email-direct">
+          <p>Per contattarci direttamente, scrivi una email a:</p>
+          <a href="mailto:vytalonglife@support.shop" class="email-link">vytalonglife@support.shop</a>
+          <p class="email-note">Rispondiamo entro 24-48 ore lavorative (Lun–Ven: 9:00–18:00).</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <div class="footer-logo">
+            <span class="logo-icon">🌿</span>
+            <span class="logo-text">Auravita</span>
+          </div>
+          <p class="footer-brand-desc">Auravita — Un integratore botanico naturale formulato per supportare le prestazioni quotidiane, la vitalità e il benessere maschile.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Azienda</h4>
+          <ul class="footer-col-links">
+            <li><a href="#">Chi Siamo</a></li>
+            <li><a href="contatti.html">Contattaci</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Assistenza</h4>
+          <ul class="footer-col-links">
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="contatti.html">Supporto Clienti</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Legale</h4>
+          <ul class="footer-col-links">
+            <li><a href="termini-di-servizio.html">Termini di Servizio</a></li>
+            <li><a href="informativa-privacy.html">Informativa sulla Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider" />
+      <p class="footer-copy">© 2025 Auravita. Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>
